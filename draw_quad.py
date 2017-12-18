@@ -31,20 +31,20 @@ def draw_lines(q, plt, xmin=-100, xmax=100, ymin=-100, ymax=100):
              'k-', lw=1)  # draws horizontal line
     plt.plot([q.point.x, q.point.x], [ymin, ymax],
              'k-', lw=1)  # draws vertical line
-    drawLines(q.nw, plt, xmin, q.point.x, q.point.y, ymax)  # enter nw tree
+    draw_lines(q.nw, plt, xmin, q.point.x, q.point.y, ymax)  # enter nw tree
 
-    drawLines(q.ne, plt, q.point.x, xmax, q.point.y, ymax)  # enter ne tree
+    draw_lines(q.ne, plt, q.point.x, xmax, q.point.y, ymax)  # enter ne tree
 
-    drawLines(q.se, plt, q.point.x, xmax, ymin, q.point.y)  # enter se tree
+    draw_lines(q.se, plt, q.point.x, xmax, ymin, q.point.y)  # enter se tree
 
-    drawLines(q.sw, plt, xmin, q.point.x, ymin, q.point.y)  # enter sw tree
+    draw_lines(q.sw, plt, xmin, q.point.x, ymin, q.point.y)  # enter sw tree
     return
 
 
 def draw_bounds(linesxy):
     frame = plt.gca()
     line = plt.Line2D(linesxy[0], linesxy[1], color='red')
-    frame.add_line(l)
+    frame.add_line(line)
 
 
 def project3(data):
@@ -89,7 +89,7 @@ def project3(data):
     draw_bounds(rightbound)
     botbound = [[xmin, xmax], [ymin, ymin]]
     draw_bounds(botbound)
-    drawLines(q, plt, xmin, xmax, ymin, ymax)  # enter drawing lines function
+    draw_lines(q, plt, xmin, xmax, ymin, ymax)  # enter drawing lines function
     plt.title("Order of points graphed: \n" + str(pointsintree), wrap=True)
     plt.show()
 
